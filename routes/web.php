@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[IndexController::class,"viewIndex"])->name('index');
+Route::post('/parse',[IndexController::class,"showParseUrl"])->name('parse');
+Route::get('/result',[IndexController::class,"viewResult"])->name('result');
